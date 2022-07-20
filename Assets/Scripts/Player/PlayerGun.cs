@@ -3,18 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerGun : MonoBehaviour
 {
-    private PlayerInputSystem _input;
+    [SerializeField] private GameObject _cannonBall;
 
-    private void Awake()
-    {
-        _input = new PlayerInputSystem();
-    }
+    public delegate void ShootEvent();
+    public event ShootEvent OnShoot;
 
-
-    // Not working!
-    // TO DO...
     public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot " + context.phase);
+
     }
 }

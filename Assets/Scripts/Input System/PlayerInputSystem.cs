@@ -41,10 +41,10 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b1780a75-137f-4ab3-a6e0-b94a93c8ed6b"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Touch"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -52,7 +52,19 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Touch"",
+            ""bindingGroup"": ""Touch"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
@@ -145,6 +157,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_TouchSchemeIndex = -1;
+    public InputControlScheme TouchScheme
+    {
+        get
+        {
+            if (m_TouchSchemeIndex == -1) m_TouchSchemeIndex = asset.FindControlSchemeIndex("Touch");
+            return asset.controlSchemes[m_TouchSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnShoot(InputAction.CallbackContext context);

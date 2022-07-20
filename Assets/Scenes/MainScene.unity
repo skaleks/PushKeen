@@ -504,7 +504,9 @@ GameObject:
   - component: {fileID: 248422101}
   - component: {fileID: 248422100}
   - component: {fileID: 248422103}
-  - component: {fileID: 248422102}
+  - component: {fileID: 248422104}
+  - component: {fileID: 248422105}
+  - component: {fileID: 248422106}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -543,7 +545,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &248422102
+--- !u!114 &248422103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248422099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &248422104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,7 +589,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
---- !u!114 &248422103
+--- !u!114 &248422105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,12 +598,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 248422099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Script: {fileID: 11500000, guid: d867bd467797ce94a98f75ca85111e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
+--- !u!114 &248422106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248422099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0b635ce537b284689a405e62ed6e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &360867787
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +624,6 @@ GameObject:
   - component: {fileID: 360867788}
   - component: {fileID: 360867790}
   - component: {fileID: 360867789}
-  - component: {fileID: 360867791}
   m_Layer: 0
   m_Name: Gun_Player
   m_TagString: Untagged
@@ -633,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299419abc5a3fae488f3382ef9ce6623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cannonBall: {fileID: 1185429878053411901, guid: 2ab7299329ad9e349a59bdb235e1688b, type: 3}
 --- !u!212 &360867790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -685,52 +711,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &360867791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360867787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 3a12ce6f50bda974da9ef155454e0514, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 360867789}
-        m_TargetAssemblyTypeName: PlayerGun, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 91dd1711-8e6c-4317-be0f-655988796ab4
-    m_ActionName: Player/Shoot[/Mouse/leftButton]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &402917129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1118,7 @@ MonoBehaviour:
     m_ActionId: 91dd1711-8e6c-4317-be0f-655988796ab4
     m_ActionName: Player/Shoot[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Touch
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
