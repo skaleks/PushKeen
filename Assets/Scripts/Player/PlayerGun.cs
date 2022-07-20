@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerGun : MonoBehaviour
 {
-    private PlayerInput _input;
+    private PlayerInputSystem _input;
 
     private void Awake()
     {
-        _input = new PlayerInput();
+        _input = new PlayerInputSystem();
     }
 
 
@@ -15,6 +15,6 @@ public class PlayerGun : MonoBehaviour
     // TO DO...
     public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot");
+        Debug.Log("Shoot " + context.phase);
     }
 }
