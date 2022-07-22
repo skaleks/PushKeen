@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MoveGun",
+                    "type": "PassThrough",
+                    "id": "bbac0a00-a51b-4f95-9cc0-f05839818fc8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -20,10 +29,21 @@
                     "name": "",
                     "id": "b1780a75-137f-4ab3-a6e0-b94a93c8ed6b",
                     "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1adf7e63-0f9d-4b37-8555-5b9fcc6a7735",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "MoveGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

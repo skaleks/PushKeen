@@ -3,31 +3,36 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-[RequireComponent(typeof(UIDocument))]
-public class GameInterface : MonoBehaviour
+
+public class GameInterface : MainGameUI
 {
-    protected VisualElement _root;
     private VisualElement _pausePanel;
+    private Button _pauseButton;
+    private Button _activateShieldButton;
+    private Button _restartButton;
+    private Button _resumeButton;
 
-    private void Awake()
+
+    protected override void OnEnable()
     {
-        _root = GetComponent<UIDocument>().rootVisualElement;
-        
+        _pausePanel = _Root.Q<VisualElement>("PauseScreen");
+
+        _pauseButton = _Root.Q<Button>("Pause");
+        _activateShieldButton = _Root.Q<Button>("ActivateShield");
+        _restartButton = _pausePanel.Q<Button>("Restart");
+        _resumeButton = _pausePanel.Q<Button>("Resume");
+
+        _pauseButton.clicked += Pause;
+        _activateShieldButton.clicked += ActivateShield;
+        _restartButton.clicked += Restart;
+        _resumeButton.clicked += Resume;
     }
-
-    private void OnEnable()
+    protected override void OnDisable()
     {
-        _pausePanel = _root.Q<VisualElement>("PauseScreen");
-
-        Button pauseButton = _root.Q<Button>("Pause");
-        Button activateShieldButton = _root.Q<Button>("ActivateShield");
-        Button restartButton = _pausePanel.Q<Button>("Restart");
-        Button resumeButton = _pausePanel.Q<Button>("Resume");
-
-        pauseButton.clicked += Pause;
-        activateShieldButton.clicked += ActivateShield;
-        restartButton.clicked += Restart;
-        resumeButton.clicked += Resume;
+        _pauseButton.clicked -= Pause;
+        _activateShieldButton.clicked -= ActivateShield;
+        _restartButton.clicked -= Restart;
+        _resumeButton.clicked -= Resume;
     }
 
     private void Resume()
@@ -59,4 +64,6 @@ public class GameInterface : MonoBehaviour
 
         // TO DO
     }
+
+
 }

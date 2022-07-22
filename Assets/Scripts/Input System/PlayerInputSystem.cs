@@ -35,6 +35,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveGun"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""bbac0a00-a51b-4f95-9cc0-f05839818fc8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -42,10 +51,21 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""b1780a75-137f-4ab3-a6e0-b94a93c8ed6b"",
                     ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": ""Touch"",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1adf7e63-0f9d-4b37-8555-5b9fcc6a7735"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""MoveGun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -69,6 +89,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_MoveGun = m_Player.FindAction("MoveGun", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -129,11 +150,13 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_MoveGun;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
         public PlayerActions(@PlayerInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @MoveGun => m_Wrapper.m_Player_MoveGun;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -146,6 +169,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @MoveGun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGun;
+                @MoveGun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGun;
+                @MoveGun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGun;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -153,6 +179,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @MoveGun.started += instance.OnMoveGun;
+                @MoveGun.performed += instance.OnMoveGun;
+                @MoveGun.canceled += instance.OnMoveGun;
             }
         }
     }
@@ -169,5 +198,6 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnShoot(InputAction.CallbackContext context);
+        void OnMoveGun(InputAction.CallbackContext context);
     }
 }
