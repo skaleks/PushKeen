@@ -15,7 +15,7 @@ public abstract class AbstractCombatant : MonoBehaviour, IDamageable
         set
         {
             _health = value;
-            if(_health > 0)
+            if(_health >= 0)
             {
                 OnHealthChanged?.Invoke(_health);
             }
@@ -26,4 +26,6 @@ public abstract class AbstractCombatant : MonoBehaviour, IDamageable
     {
         health -= 10;
     }
+
+    protected abstract void ActivateShield();
 }

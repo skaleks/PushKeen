@@ -9,7 +9,7 @@ public abstract class AbstractGun : MonoBehaviour
     [SerializeField] protected GameObject _dulo;
 
     protected List<GameObject> _cannonBallPool;
-    protected int _poolLength = 25;
+    protected int _poolLength = 10;
     protected Rigidbody2D _cannonBallRigidBody;
 
     private void Awake()
@@ -28,12 +28,12 @@ public abstract class AbstractGun : MonoBehaviour
 
     protected GameObject GetCannonBall()
     {
-        for (int i = 0; i < _poolLength; i++)
+        foreach(GameObject prefab in _cannonBallPool)
         {
-            if (!_cannonBallPool[i].activeInHierarchy)
+            if (!prefab.activeInHierarchy)
             {
-                SetCannonBallPosition(_cannonBallPool[i]);
-                return _cannonBallPool[i];
+                SetCannonBallPosition(prefab);
+                return prefab;
             }
         }
         return null;

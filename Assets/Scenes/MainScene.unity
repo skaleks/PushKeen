@@ -180,14 +180,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98404357}
-  m_LocalRotation: {x: -0, y: -0, z: -0.22753645, w: 0.9737696}
-  m_LocalPosition: {x: -0.214, y: 0.116, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.2398125, w: 0.97081923}
+  m_LocalPosition: {x: -0.21399999, y: 0.116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 360867788}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.304}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.751}
 --- !u!1 &131671606
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,9 +706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cannonBall: {fileID: 1185429878053411901, guid: 2ab7299329ad9e349a59bdb235e1688b, type: 3}
-  _shootPower: 15
-  _anchor: {fileID: 1243793993}
-  _dulo: {fileID: 510568334}
+  _shootPower: 12
+  _anchor: {fileID: 1567104485}
+  _dulo: {fileID: 98404357}
 --- !u!212 &360867790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -922,6 +922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 100
+  _gameInterface: {fileID: 248422105}
+  _shield: {fileID: 2119104106}
 --- !u!1 &510568334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871164565}
   - component: {fileID: 871164564}
+  - component: {fileID: 871164566}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1300,10 +1303,10 @@ MonoBehaviour:
     m_ActionName: Player/Shoot[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018658844}
-        m_TargetAssemblyTypeName: AbstractCombatant, Assembly-CSharp
-        m_MethodName: TestMethod
-        m_Mode: 1
+      - m_Target: {fileID: 360867789}
+        m_TargetAssemblyTypeName: PlayerGun, Assembly-CSharp
+        m_MethodName: MoveGun
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1312,21 +1315,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 465378959}
-        m_TargetAssemblyTypeName: AbstractCombatant, Assembly-CSharp
-        m_MethodName: TestMethod
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: fd0c3719-96ce-46a4-ba7e-2c0f3c47e1e4
-    m_ActionName: Test/TestHealthBar[/Device Simulator Touchscreen/primaryTouch/tap,/Simulated
-      Touchscreen/primaryTouch/tap]
+    m_ActionId: bbac0a00-a51b-4f95-9cc0-f05839818fc8
+    m_ActionName: Player/MoveGun[/Device Simulator Touchscreen/primaryTouch/delta/y,/Simulated
+      Touchscreen/primaryTouch/delta/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Touch
   m_DefaultActionMap: Player
@@ -1347,6 +1338,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871164566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871164563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc6f75ff223e0c4586c566df153a2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameInterface: {fileID: 248422105}
 --- !u!1 &1185650828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1463313023}
   - component: {fileID: 1463313024}
+  - component: {fileID: 1463313025}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -1632,6 +1637,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1463313025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463313022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50294e97d71acb64989778533f3c4b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cannonBall: {fileID: 1185429878053411901, guid: 2ab7299329ad9e349a59bdb235e1688b, type: 3}
+  _shootPower: 12
+  _anchor: {fileID: 1243793993}
+  _dulo: {fileID: 510568334}
 --- !u!1 &1493441339
 GameObject:
   m_ObjectHideFlags: 0

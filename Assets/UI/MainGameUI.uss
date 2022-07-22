@@ -4,6 +4,7 @@
     width: 70%;
     height: 17%;
     left: auto;
+    flex-shrink: 0;
 }
 
 .healthBarForeground {
@@ -11,6 +12,7 @@
     height: 100%;
     background-image: url('project://database/Assets/Resourses/Sprites/UI_Interfaces/Healthbar.png?fileID=21300000&guid=f5325b20ca69be3498eab3ad6b9b7a2c&type=3#Healthbar');
     -unity-background-image-tint-color: rgb(129, 208, 161);
+    flex-shrink: 0;
 }
 
 .pauseScreenButton {
@@ -29,4 +31,32 @@
     -unity-text-align: middle-center;
     -unity-font: none;
     -unity-font-definition: url('project://database/Assets/Fonts/supercell-magic%20SDF.asset?fileID=11400000&guid=986690b7222510d47929f1138345a03a&type=2#supercell-magic SDF');
+    flex-shrink: 0;
+}
+
+.shieldButton {
+    background-image: url('project://database/Assets/Resourses/Sprites/UI_Interfaces/Shield_Button.png?fileID=2800000&guid=c7098c36cfefd0749bac67328437da75&type=3#Shield_Button');
+    right: -60%;
+    width: 35%;
+    height: 70%;
+    translate: -40% 0;
+    transform-origin: center;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 255);
+    opacity: 1;
+}
+
+.shieldButton:disabled {
+    background-image: url('project://database/Assets/Resourses/Sprites/UI_Interfaces/Shield_Button_Disable.png?fileID=2800000&guid=183d1f060f6af244398137ccb63fe3b1&type=3#Shield_Button_Disable');
+    display: flex;
+    translate: -40% 0;
+    border-left-color: rgb(197, 194, 194);
+    border-right-color: rgb(197, 194, 194);
+    border-top-color: rgb(197, 194, 194);
+    border-bottom-color: rgb(197, 194, 194);
+    width: 35%;
+    height: 70%;
+    flex-shrink: 0;
+    right: -60%;
+    background-color: rgba(253, 253, 253, 0);
 }
