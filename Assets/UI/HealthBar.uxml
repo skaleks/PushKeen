@@ -1,13 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/HealthBar.uss?fileID=7433441132597879392&amp;guid=e37fa2288fc99314cbbdacc7a0864495&amp;type=3#HealthBar" />
     <ui:VisualElement name="Screen" picking-mode="Ignore" style="flex-shrink: 0; flex-grow: 1;">
-        <ui:VisualElement name="Top" picking-mode="Ignore" style="height: 20%; align-items: stretch; flex-shrink: 0; flex-direction: row; justify-content: space-between;">
-            <ui:VisualElement name="LeftContainer" picking-mode="Ignore" style="flex-basis: auto; flex-shrink: 0; width: 40%; height: 100%; align-items: center; justify-content: center;">
+        <ui:VisualElement name="Top" picking-mode="Ignore" style="height: 20%; align-items: stretch; flex-shrink: 0; flex-direction: row; justify-content: space-between; opacity: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="LeftContainer" picking-mode="Ignore" style="flex-basis: auto; flex-shrink: 0; width: 40%; height: 100%; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0);">
                 <ui:VisualElement name="HealthBar" picking-mode="Ignore" class="healthBar">
                     <ui:VisualElement name="EnemyHealth" picking-mode="Ignore" class="healthBarForeground" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="RightContainer" picking-mode="Ignore" style="width: 40%; height: 100%; align-items: center; justify-content: center;">
+            <ui:VisualElement name="RightContainer" picking-mode="Ignore" style="width: 40%; height: 100%; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0);">
                 <ui:VisualElement name="HealthBar" picking-mode="Ignore" class="healthBar">
                     <ui:VisualElement name="PlayerHealth" picking-mode="Ignore" class="healthBarForeground" />
                 </ui:VisualElement>

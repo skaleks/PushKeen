@@ -10,7 +10,6 @@ public class EnemyGun : AbstractGun
     {
         StartCoroutine(nameof(Shoot));
     }
-
     private void Update()
     {
         if (_playerShield.IsActive())
@@ -22,8 +21,6 @@ public class EnemyGun : AbstractGun
             MoveGunUp();
         }
     }
-
-
     private IEnumerator Shoot()
     {
         yield return new WaitForSeconds(2);
@@ -32,7 +29,6 @@ public class EnemyGun : AbstractGun
         _cannonBallRigidBody = cannonBall.GetComponent<Rigidbody2D>();
         _cannonBallRigidBody.AddRelativeForce(Vector2.up * _shootPower, ForceMode2D.Impulse);
     }
-
     private void MoveGunDown()
     {
         _anchor.transform.rotation = Quaternion.Euler(0, 0, -30);

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Enemy : AbstractCombatant
 {
-    [SerializeField] private EnemyShield _shield;
     private int _intervalBetweenShieldActivation = 15;
     private int _randomDelay;
     private bool _canActivateShield = true;
@@ -19,7 +18,6 @@ public class Enemy : AbstractCombatant
             }
         }
     }
-
     private IEnumerator StartRandomShieldActivator(int seconds)
     {
         _canActivateShield = false;
@@ -32,7 +30,6 @@ public class Enemy : AbstractCombatant
         
         _canActivateShield = true;
     }
-
     protected override void ActivateShield()
     {
         _shield.Activate();

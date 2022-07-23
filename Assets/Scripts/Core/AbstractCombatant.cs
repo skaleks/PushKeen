@@ -5,6 +5,8 @@ public abstract class AbstractCombatant : MonoBehaviour, IDamageable
 {
     [SerializeField] protected int _maxHealth = 100;
     [SerializeField] protected int _health = 100;
+    [SerializeField] protected int _damage = 10;
+    [SerializeField] protected AbstractShield _shield;
 
     public event Action<int> OnHealthChanged;
 
@@ -24,7 +26,11 @@ public abstract class AbstractCombatant : MonoBehaviour, IDamageable
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        health -= 10;
+        collision.gameObject.SetActive(false);
+        if (!_shield.IsActive())
+        {
+            health -= _damage;
+        }
     }
 
     protected abstract void ActivateShield();

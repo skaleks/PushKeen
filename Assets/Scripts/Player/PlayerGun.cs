@@ -12,7 +12,6 @@ public class PlayerGun : AbstractGun
             _cannonBallRigidBody.AddRelativeForce(Vector2.up * _shootPower, ForceMode2D.Impulse);
         }
     }
-
     public void MoveGun(InputAction.CallbackContext context)
     {
         while (context.performed)
@@ -21,5 +20,4 @@ public class PlayerGun : AbstractGun
             Debug.Log(value);
         }
     }
-
 }

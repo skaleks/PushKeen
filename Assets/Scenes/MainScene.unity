@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPower: 12
-  _cannonBall: {fileID: 1185429878053411901, guid: 2ab7299329ad9e349a59bdb235e1688b, type: 3}
+  _cannonBall: {fileID: 1185429878053411901, guid: 10ef2805865a90c42b98224dd625d37a, type: 3}
   _anchor: {fileID: 1567104485}
   _dulo: {fileID: 98404357}
 --- !u!212 &360867790
@@ -907,8 +907,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 100
-  _gameInterface: {fileID: 248422105}
+  _damage: 10
   _shield: {fileID: 2119104109}
+  _gameInterface: {fileID: 248422105}
 --- !u!1 &510568334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1969,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.021846175, y: -1.4491267}
@@ -2235,6 +2236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 100
+  _damage: 10
   _shield: {fileID: 1829130321}
 --- !u!1 &2119104106
 GameObject:
@@ -2281,7 +2283,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.043736577, y: -1.5226142}

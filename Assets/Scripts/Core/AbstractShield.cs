@@ -10,15 +10,15 @@ public abstract class AbstractShield : MonoBehaviour
         gameObject.SetActive(true);
         counter = _shieldHealth;
     }
-
     private void Deactivate()
     {
         gameObject.SetActive(false);
         counter = _shieldHealth;
     }
-
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        collision.gameObject.SetActive(false);
+
         counter--;
 
         if (counter <= 0)
@@ -26,6 +26,7 @@ public abstract class AbstractShield : MonoBehaviour
             Deactivate();
         }
     }
+
     public bool IsActive()
     {
         return gameObject.activeInHierarchy ? true : false;
