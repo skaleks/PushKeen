@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 public class Player : AbstractCombatant
 {
     [SerializeField] private GameInterface _gameInterface;
-    [SerializeField] private GameObject _shield;
+    [SerializeField] private PlayerShield _shield;
 
     private void OnEnable()
     {
@@ -18,6 +17,6 @@ public class Player : AbstractCombatant
 
     protected override void ActivateShield()
     {
-        _shield.SetActive(true);
+        _shield.Activate();
     }
 }

@@ -1,8 +1,8 @@
 using UnityEngine.SceneManagement;
 
-public static class SceneLoader
+public class SceneLoader
 {
-    public static void RestartGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }

@@ -2,35 +2,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class InputHandler : MonoBehaviour
+public class InputHandler : MonoBehaviour, IPauseable
 {
     private PlayerInput _playerInput;
-    [SerializeField] private GameInterface _gameInterface;
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        _gameInterface.OnPause += DisablePlayerInput;
-        _gameInterface.OnResume += EnablePlayerInput;
+        ProjectContext.Instance.PauseHandler.Add(this);
     }
 
-    private void OnDisable()
+    public void SetPaused(bool isPaused)
     {
-        _gameInterface.OnPause -= DisablePlayerInput;
-        _gameInterface.OnResume -= EnablePlayerInput;
-    }
-
-    public void DisablePlayerInput()
-    {
-        _playerInput.DeactivateInput();
-    }
-
-    private void EnablePlayerInput()
-    {
-        _playerInput.ActivateInput();
+        if (isPaused)
+        {
+            _playerInput.DeactivateInput();
+        }
+        else
+        {
+            _playerInput.ActivateInput();
+        }
     }
 }

@@ -5,8 +5,6 @@ using UnityEngine.UIElements;
 
 public class GameInterface : MainGameUI
 {
-    //[SerializeField] private Texture2D background;
-
     private VisualElement _pausePanel;
     private Button _pauseButton;
     private Button _activateShieldButton;
@@ -42,42 +40,42 @@ public class GameInterface : MainGameUI
         _restartButton.clicked -= Restart;
         _resumeButton.clicked -= Resume;
     }
+    private void Pause()
+    {
+        ProjectContext.Instance.PauseHandler.SetPaused(true);
+        _pausePanel.style.display = DisplayStyle.Flex;
+    }
 
     private void Resume()
     {
-        // It is necessary to implement a correct pause return
-
-        OnResume?.Invoke();
+        ProjectContext.Instance.PauseHandler.SetPaused(false);
         _pausePanel.style.display = DisplayStyle.None;
     }
 
     private void Restart()
     {
-        SceneLoader.RestartGame();
-
-        Debug.Log("Restart");
+        ProjectContext.Instance.SceneLoader.RestartGame();
     }
 
     private void ActivateShield()
     {
-        //_activateShieldButton.style.backgroundImage = background;
+        StartCoroutine(RunTimer(_shieldActivationInterval));
+    }
+
+    private IEnumerator RunTimer(int seconds)
+    {
         _activateShieldButton.SetEnabled(false);
         _timer.style.display = DisplayStyle.Flex;
 
         OnShieldActivate?.Invoke();
 
-        Debug.Log("Shield Activate");
+        while (seconds >= 0)
+        {
+            _timer.text = "0:" + seconds--;
+            yield return new WaitForSeconds(1);
+        }
 
-        // TO DO. Add a timer
+        _activateShieldButton.SetEnabled(true);
+        _timer.style.display = DisplayStyle.None;
     }
-
-    private void Pause()
-    {
-        // It is necessary to implement a correct pause
-
-        OnPause?.Invoke();
-        _pausePanel.style.display = DisplayStyle.Flex;
-    }
-
-
 }
