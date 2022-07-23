@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
-
 
 [RequireComponent(typeof(UIDocument))]
 public abstract class MainGameUI : MonoBehaviour

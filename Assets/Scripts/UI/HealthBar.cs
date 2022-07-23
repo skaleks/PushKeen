@@ -1,23 +1,33 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public abstract class HealthBar : MainGameUI
+[RequireComponent(typeof(UIDocument))]
+public abstract class HealthBar : MonoBehaviour
 {
+    protected VisualElement _Root;
     protected IDamageable _damageable;
+    protected Length _health;
     [SerializeField] protected GameObject _character;
 
     private void Awake()
     {
+        _Root = GetComponent<UIDocument>().rootVisualElement;
         _damageable = _character.GetComponent<IDamageable>();
     }
 
-    protected override void OnEnable()
+    protected virtual void OnEnable()
     {
-        _damageable.OnHealthChanged += HealthChanged;
+        if (_damageable != null)
+        {
+            _damageable.OnHealthChanged += HealthChanged;
+        }
     }
-    protected override void OnDisable()
+    protected virtual void OnDisable()
     {
-        _damageable.OnHealthChanged -= HealthChanged;
+        if (_damageable != null)
+        {
+            _damageable.OnHealthChanged -= HealthChanged;
+        }
     }
-
     protected abstract void HealthChanged(int value);
 }

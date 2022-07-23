@@ -1,9 +1,22 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyHealthBar : HealthBar
 {
+    private VisualElement _healthBar;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _healthBar = _Root.Q<VisualElement>("EnemyHealth");
+        _health = new Length();
+    }
+
     protected override void HealthChanged(int value)
     {
-        Debug.Log("Enemy health " + value);
+        _health = value;
+        _health.unit = LengthUnit.Percent;
+
+        _healthBar.style.width = _health;
     }
 }

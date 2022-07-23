@@ -4,10 +4,9 @@ using UnityEngine;
 public class Enemy : AbstractCombatant
 {
     [SerializeField] private EnemyShield _shield;
-    private int _intervalBetweenShieldActivation;
+    private int _intervalBetweenShieldActivation = 15;
     private int _randomDelay;
     private bool _canActivateShield = true;
-
 
     private void Update()
     {
@@ -15,7 +14,6 @@ public class Enemy : AbstractCombatant
         {
             if (!_shield.IsActive())
             {
-                _intervalBetweenShieldActivation = Random.Range(15, 20);
                 _randomDelay = Random.Range(1, 5);
                 StartCoroutine(StartRandomShieldActivator(_randomDelay));
             }
@@ -39,6 +37,4 @@ public class Enemy : AbstractCombatant
     {
         _shield.Activate();
     }
-
-
 }

@@ -26,4 +26,8 @@ public abstract class AbstractShield : MonoBehaviour
             Deactivate();
         }
     }
+    public bool IsActive()
+    {
+        return gameObject.activeInHierarchy ? true : false;
+    }
 }

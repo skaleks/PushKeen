@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +9,7 @@ public class PlayerGun : AbstractGun
         {
             GameObject cannonBall = GetCannonBall();
             _cannonBallRigidBody = cannonBall.GetComponent<Rigidbody2D>();
-            _cannonBallRigidBody.AddRelativeForce(Vector2.left * _shootPower, ForceMode2D.Impulse);
+            _cannonBallRigidBody.AddRelativeForce(Vector2.up * _shootPower, ForceMode2D.Impulse);
         }
     }
 
@@ -22,4 +21,5 @@ public class PlayerGun : AbstractGun
             Debug.Log(value);
         }
     }
+
 }

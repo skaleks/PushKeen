@@ -12,11 +12,12 @@ public class GameInterface : MainGameUI
     private Button _restartButton;
     private Button _resumeButton;
 
-    private int _shieldActivationInterval = 20;
+    private int _shieldActivationInterval = 15;
 
     public event Action OnPause;
     public event Action OnResume;
     public event Action OnShieldActivate;
+    
 
     protected override void OnEnable()
     {
