@@ -694,7 +694,7 @@ MonoBehaviour:
   _cannonBall: {fileID: 1185429878053411901, guid: 10ef2805865a90c42b98224dd625d37a, type: 3}
   _anchor: {fileID: 1567104485}
   _dulo: {fileID: 98404357}
-  _rotationSpeed: 10
+  _rotationSpeed: 4
 --- !u!212 &360867790
 SpriteRenderer:
   m_ObjectHideFlags: 0
