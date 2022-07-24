@@ -1,6 +1,4 @@
-﻿
-
-public interface IPauseable
+﻿public interface IPauseable
 {
     void SetPaused(bool isPaused);
 }

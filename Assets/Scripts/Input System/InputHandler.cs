@@ -10,12 +10,10 @@ public class InputHandler : MonoBehaviour, IPauseable
     {
         _playerInput = GetComponent<PlayerInput>();
     }
-
     private void Start()
     {
         ProjectContext.Instance.PauseHandler.Add(this);
     }
-
     public void SetPaused(bool isPaused)
     {
         if (isPaused)

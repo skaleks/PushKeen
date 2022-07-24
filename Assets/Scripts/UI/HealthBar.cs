@@ -4,10 +4,10 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public abstract class HealthBar : MonoBehaviour
 {
+    [SerializeField] protected GameObject _character;
     protected VisualElement _Root;
     protected IDamageable _damageable;
     protected Length _health;
-    [SerializeField] protected GameObject _character;
 
     private void Awake()
     {

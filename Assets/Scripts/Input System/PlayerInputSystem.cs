@@ -50,7 +50,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b1780a75-137f-4ab3-a6e0-b94a93c8ed6b"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch"",

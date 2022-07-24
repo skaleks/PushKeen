@@ -24,9 +24,11 @@ public class EnemyGun : AbstractGun
     }
     private IEnumerator Shoot()
     {
+        yield return new WaitForSeconds(1);
+
         while(_enemy.health > 0)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             GameObject cannonBall = GetCannonBall();
             _cannonBallRigidBody = cannonBall.GetComponent<Rigidbody2D>();

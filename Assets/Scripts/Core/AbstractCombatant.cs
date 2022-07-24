@@ -32,6 +32,5 @@ public abstract class AbstractCombatant : MonoBehaviour, IDamageable
             health -= _damage;
         }
     }
-
     protected abstract void ActivateShield();
 }

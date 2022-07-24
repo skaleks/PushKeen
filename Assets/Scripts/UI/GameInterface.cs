@@ -17,7 +17,6 @@ public class GameInterface : MainGameUI
     public event Action OnPause;
     public event Action OnResume;
     public event Action OnShieldActivate;
-    
 
     protected override void OnEnable()
     {
@@ -46,23 +45,19 @@ public class GameInterface : MainGameUI
         ProjectContext.Instance.PauseHandler.SetPaused(true);
         _pausePanel.style.display = DisplayStyle.Flex;
     }
-
     private void Resume()
     {
         ProjectContext.Instance.PauseHandler.SetPaused(false);
         _pausePanel.style.display = DisplayStyle.None;
     }
-
     private void Restart()
     {
         ProjectContext.Instance.SceneLoader.RestartGame();
     }
-
     private void ActivateShield()
     {
         StartCoroutine(RunTimer(_shieldActivationInterval));
     }
-
     private IEnumerator RunTimer(int seconds)
     {
         _activateShieldButton.SetEnabled(false);

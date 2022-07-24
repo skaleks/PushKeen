@@ -10,7 +10,6 @@ public abstract class MainGameUI : MonoBehaviour
     {
         _Root = GetComponent<UIDocument>().rootVisualElement;
     }
-
     protected abstract void OnEnable();
     protected abstract void OnDisable();
 }

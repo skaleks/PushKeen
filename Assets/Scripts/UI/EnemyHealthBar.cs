@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.UIElements;
 
 public class EnemyHealthBar : HealthBar
@@ -11,7 +10,6 @@ public class EnemyHealthBar : HealthBar
         _healthBar = _Root.Q<VisualElement>("EnemyHealth");
         _health = new Length();
     }
-
     protected override void HealthChanged(int value)
     {
         _health = value;
