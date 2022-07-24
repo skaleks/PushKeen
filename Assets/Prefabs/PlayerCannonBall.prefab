@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4220730526444784790}
   - component: {fileID: -7767762940722678599}
   - component: {fileID: -1844394792425143496}
+  - component: {fileID: -3780919295922487190}
   m_Layer: 0
   m_Name: PlayerCannonBall
   m_TagString: PlayerBall
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3780919295922487190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185429878053411901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416b718f0e92cdf40a3fee4b7108d235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

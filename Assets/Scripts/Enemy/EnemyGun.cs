@@ -5,6 +5,7 @@ public class EnemyGun : AbstractGun
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private PlayerShield _playerShield;
+    [SerializeField] private Enemy _enemy;
 
     private void Start()
     {
@@ -23,11 +24,14 @@ public class EnemyGun : AbstractGun
     }
     private IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(2);
+        while(_enemy.health > 0)
+        {
+            yield return new WaitForSeconds(1);
 
-        GameObject cannonBall = GetCannonBall();
-        _cannonBallRigidBody = cannonBall.GetComponent<Rigidbody2D>();
-        _cannonBallRigidBody.AddRelativeForce(Vector2.up * _shootPower, ForceMode2D.Impulse);
+            GameObject cannonBall = GetCannonBall();
+            _cannonBallRigidBody = cannonBall.GetComponent<Rigidbody2D>();
+            _cannonBallRigidBody.AddRelativeForce(Vector2.up * _shootPower, ForceMode2D.Impulse);
+        }
     }
     private void MoveGunDown()
     {

@@ -694,6 +694,7 @@ MonoBehaviour:
   _cannonBall: {fileID: 1185429878053411901, guid: 10ef2805865a90c42b98224dd625d37a, type: 3}
   _anchor: {fileID: 1567104485}
   _dulo: {fileID: 98404357}
+  _rotationSpeed: 10
 --- !u!212 &360867790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1640,6 +1641,7 @@ MonoBehaviour:
   _dulo: {fileID: 510568334}
   _player: {fileID: 465378956}
   _playerShield: {fileID: 2119104109}
+  _enemy: {fileID: 2018658844}
 --- !u!1 &1493441339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962096586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5577192, y: 0.9476565, z: 1.2405246}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
