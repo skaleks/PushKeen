@@ -13,12 +13,21 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="PauseScreen" style="flex-grow: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(14, 14, 14, 0.44); align-items: center; justify-content: center; display: none;">
+    <ui:VisualElement name="PauseScreen" picking-mode="Ignore" style="flex-grow: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(14, 14, 14, 0.44); align-items: center; justify-content: center; display: none;">
         <ui:VisualElement name="PausePanel" style="position: relative; left: auto; width: 75%; height: 65%; align-items: center; justify-content: space-around; background-color: rgb(238, 238, 238); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 47px; border-bottom-left-radius: 47px; border-top-right-radius: 47px; border-bottom-right-radius: 47px; -unity-font-style: normal; -unity-text-align: upper-left; -unity-background-image-tint-color: rgb(255, 255, 255);">
             <ui:Label text="Pause" display-tooltip-when-elided="true" name="Text" style="width: 50%; background-color: rgba(255, 255, 255, 0); -unity-text-align: middle-center; font-size: 81%; height: 30%; -unity-font-definition: url(&apos;project://database/Assets/Fonts/supercell-magic%20SDF.asset?fileID=11400000&amp;guid=986690b7222510d47929f1138345a03a&amp;type=2#supercell-magic SDF&apos;); color: rgb(232, 66, 66); -unity-font-style: bold; letter-spacing: 0;" />
             <ui:VisualElement name="Body" style="height: 50%; width: 50%; align-items: center; justify-content: space-around; bottom: 8%;">
                 <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="pauseScreenButton" />
                 <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="pauseScreenButton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="GameOverScreen" picking-mode="Ignore" style="flex-grow: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(14, 14, 14, 0.44); align-items: center; justify-content: center; display: none;">
+        <ui:VisualElement name="GameOverPanel" style="position: relative; left: auto; width: 75%; height: 65%; align-items: center; justify-content: space-around; background-color: rgb(238, 238, 238); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 47px; border-bottom-left-radius: 47px; border-top-right-radius: 47px; border-bottom-right-radius: 47px; -unity-font-style: normal; -unity-text-align: upper-left; -unity-background-image-tint-color: rgb(255, 255, 255);">
+            <ui:Label text="Game Over" display-tooltip-when-elided="true" name="Text" style="width: 50%; background-color: rgba(255, 255, 255, 0); -unity-text-align: middle-center; font-size: 81%; height: 30%; -unity-font-definition: url(&apos;project://database/Assets/Fonts/supercell-magic%20SDF.asset?fileID=11400000&amp;guid=986690b7222510d47929f1138345a03a&amp;type=2#supercell-magic SDF&apos;); color: rgb(232, 66, 66); -unity-font-style: bold; letter-spacing: 0;" />
+            <ui:VisualElement name="Body" style="height: 50%; width: 50%; align-items: center; justify-content: space-around; bottom: 8%;">
+                <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="pauseScreenButton" />
+                <ui:Button text="Quit" display-tooltip-when-elided="true" name="Resume" class="pauseScreenButton" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

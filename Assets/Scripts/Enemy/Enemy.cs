@@ -1,20 +1,26 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : AbstractCombatant
+public class Enemy : AbstractCombatant, IPauseable
 {
     private int _intervalBetweenShieldActivation = 15;
     private int _randomDelay;
     private bool _canActivateShield = true;
+    private bool _isPaused = false;
+    private Coroutine _shieldActivator;
 
+    private void Start()
+    {
+        ProjectContext.Instance.PauseHandler.Add(this);
+    }
     private void Update()
     {
-        if (_canActivateShield)
+        if (_canActivateShield && !_isPaused)
         {
             if (!_shield.IsActive())
             {
                 _randomDelay = Random.Range(1, 5);
-                StartCoroutine(StartRandomShieldActivator(_randomDelay));
+                _shieldActivator = StartCoroutine(StartRandomShieldActivator(_randomDelay));
             }
         }
     }
@@ -27,11 +33,21 @@ public class Enemy : AbstractCombatant
         ActivateShield();
         
         yield return new WaitForSeconds(_intervalBetweenShieldActivation);
-        
+
         _canActivateShield = true;
     }
     protected override void ActivateShield()
     {
         _shield.Activate();
+    }
+    public void SetPaused(bool value)
+    {
+        _isPaused = value;
+        _canActivateShield = !value;
+
+        if (_isPaused)
+        {
+            StopCoroutine(_shieldActivator);
+        }
     }
 }

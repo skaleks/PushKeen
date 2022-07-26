@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
-public abstract class HealthBar : MonoBehaviour
+public abstract class HealthBarUI : MonoBehaviour
 {
     [SerializeField] protected GameObject _character;
     protected VisualElement _Root;

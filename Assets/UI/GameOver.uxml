@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GameOver.uss?fileID=7433441132597879392&amp;guid=86a0bcba41123444696aff895822837f&amp;type=3#GameOver" />
+    <ui:VisualElement name="GameOverScreen" picking-mode="Ignore" style="flex-grow: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(14, 14, 14, 0.44); align-items: center; justify-content: center; display: none;">
+        <ui:VisualElement name="GameOverPanel" picking-mode="Ignore" style="position: relative; left: auto; width: 75%; height: 65%; align-items: center; justify-content: space-around; background-color: rgb(238, 238, 238); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 47px; border-bottom-left-radius: 47px; border-top-right-radius: 47px; border-bottom-right-radius: 47px; -unity-font-style: normal; -unity-text-align: upper-left; -unity-background-image-tint-color: rgb(255, 255, 255);">
+            <ui:Label text="Game Over" display-tooltip-when-elided="true" name="Winner" picking-mode="Ignore" style="width: 50%; background-color: rgba(255, 255, 255, 0); -unity-text-align: middle-center; font-size: 81%; height: 30%; -unity-font-definition: url(&apos;project://database/Assets/Fonts/supercell-magic%20SDF.asset?fileID=11400000&amp;guid=986690b7222510d47929f1138345a03a&amp;type=2#supercell-magic SDF&apos;); color: rgb(232, 66, 66); -unity-font-style: bold; letter-spacing: 0;" />
+            <ui:VisualElement name="Body" picking-mode="Ignore" style="height: 50%; width: 50%; align-items: center; justify-content: space-around; bottom: 8%;">
+                <ui:Button text="Try again!" display-tooltip-when-elided="true" name="TryAgain" class="pauseScreenButton gameoverScreenButton" />
+                <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="pauseScreenButton gameoverScreenButton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

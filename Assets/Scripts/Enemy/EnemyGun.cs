@@ -1,15 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyGun : AbstractGun
+public class EnemyGun : AbstractGun, IPauseable
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private PlayerShield _playerShield;
     [SerializeField] private Enemy _enemy;
 
+    private Coroutine _shootCoroutine;
+
     private void Start()
     {
-        StartCoroutine(nameof(Shoot));
+        _shootCoroutine = StartCoroutine(Shoot());
+        ProjectContext.Instance.PauseHandler.Add(this);
     }
     private void Update()
     {
@@ -26,7 +29,7 @@ public class EnemyGun : AbstractGun
     {
         yield return new WaitForSeconds(1);
 
-        while(_enemy.health > 0)
+        while(_enemy.Health > 0)
         {
             yield return new WaitForSeconds(0.5f);
 
@@ -43,6 +46,15 @@ public class EnemyGun : AbstractGun
     {
         _anchor.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-
-
+    public void SetPaused(bool isPaused)
+    {
+        if (isPaused)
+        {
+            StopCoroutine(_shootCoroutine);
+        }
+        else
+        {
+            _shootCoroutine = StartCoroutine(Shoot());
+        }
+    }
 }

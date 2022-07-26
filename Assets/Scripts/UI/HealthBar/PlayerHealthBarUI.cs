@@ -1,13 +1,13 @@
 using UnityEngine.UIElements;
 
-public class EnemyHealthBar : HealthBar
+public class PlayerHealthBarUI : HealthBarUI
 {
     private VisualElement _healthBar;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        _healthBar = _Root.Q<VisualElement>("EnemyHealth");
+        _healthBar = _Root.Q<VisualElement>("PlayerHealth");
         _health = new Length();
     }
     protected override void HealthChanged(int value)

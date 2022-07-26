@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameInterface : MainGameUI
+public class GameInterfaceUI : MainGameUI
 {
     private VisualElement _pausePanel;
     private Button _pauseButton;
